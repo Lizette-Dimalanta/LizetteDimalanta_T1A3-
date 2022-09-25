@@ -1,0 +1,66 @@
+# project outline
+# general summary
+
+1. Outlines story part 1
+2. Choice of using a match
+3. Summary of what the person in the story is doing
+    i) You lit the match
+    ii) You did not light the match
+4. Outlines story part 2
+5. i) Choose unselected storage location
+  ii) Choose ingredients in storage location
+6. i) Choose unselected storage location
+  ii) Choose ingredients in storage location
+7. i) Choose unselected storage location
+  ii) Choose ingredients in storage location
+8. Finalise -> match + ingredients make recipe -> outlines story part 3v1 -> output
+             -> match + ingredients dont make recipe -> game restarts
+             -> no match + ingredients make recipe -> outlines story part 3v2 -> output
+             -> no match + ingredients dont make recipe -> outlines story part 3v2 -> output
+
+----------------------------------------------------------------
+
+# find patterns
+# technical summary -> DRY
+    -> NOT IMPLEMENTATION
+
+1. i) Start terminal app
+  ii) Get text values
+  iii) Print/display
+
+2. i) Get question input
+   ii) Print question
+   iii) Take user input
+
+3. i) Get user input
+   ii) Print/display
+
+4. i) Get text values
+  ii) Print/display
+
+5. i) Get unselected storage location input value
+   ii) Use location input value to calculate ingredients
+   iii) Print selected ingredient
+   iv) Update inventory with selected ingredient
+
+6. i) Get unselected storage location input value
+   ii) Use location input value to calculate ingredients
+   iii) Print selected ingredient
+   iv) Update inventory with selected ingredient
+
+7. i) Get unselected storage location input value
+   ii) Use location input value to calculate ingredients
+   iii) Print selected ingredient
+   iv) Update inventory with selected ingredient
+
+8. i) Get ingredients from inventory
+    ii) Calculate cooking method
+    iii) Calculate program action (cooking method value + inventory match)
+    iv) Do action
+
+Hard problem =
+Document all thoughts down
+
+Write 1 new thing you learnt -> summarise
+- Explaining to someone
+

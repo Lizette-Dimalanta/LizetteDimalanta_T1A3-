@@ -1,55 +1,121 @@
-# from prettytable import PrettyTable
-# x = PrettyTable()
+from simple_term_menu import TerminalMenu
+from prettytable import PrettyTable
+x = PrettyTable()
+
+TITLE = """
+      _.-^^---....,,--       
+  _--                  --_  
+ <                        >)
+ |                         |
+  \._                   _./ 
+     ```--. . , ; .--'''    
+           | |   |       
+        .-=||  | |=-.   
+        `-=#$%&%$#=-'   
+           | ;  :|     
+  _____.,-#%&$@%#&#~,._____
+ 
+██████╗░░█████╗░░█████╗░███████╗██╗
+██╔══██╗██╔══██╗██╔══██╗██╔════╝██║
+██████╔╝██║░░██║██║░░██║█████╗░░██║
+██╔═══╝░██║░░██║██║░░██║██╔══╝░░╚═╝
+██║░░░░░╚█████╔╝╚█████╔╝██║░░░░░██╗
+╚═╝░░░░░░╚════╝░░╚════╝░╚═╝░░░░░╚═╝
+"""
+
+print(TITLE)
+
+def main():
+    """title screen"""
+    options = ["Start", "Quit"]
+    terminal_menu = TerminalMenu(options, title = "What happened here?")
+    quit_menu = False
+
+    while quit_menu == 0:
+        options_choice = terminal_menu.show()
+        if options_choice == 0:
+            quit_menu = True
+
+        elif options_choice == 1:
+            quit()
+
+if __name__ == "__main__":
+    main()
 
 LOG_1 = """
-------------------------------------------------
+_____________________________________________________
+
 I woke up at my desk. I remember being awake all night but my memory is foggy. 
 The room smells of smoke, it seems like something happened here.
 ...
 It's dark, the light switch doesn't seem to turn on.
 There is a matchbox in my pocket with a single match left.
-------------------------------------------------
+_____________________________________________________
 """
 
 print(LOG_1)
 
-USE_MATCH_1 = """
-
-Used match.
+LIGHT_MATCH = """
 (Inventory: match -1)
-"""
 
-USE_MATCH_2 = """
+              )
+             (_)
+            .-'-.
+            |   |
+            |   |
+            |   |
+            |   |
+          __|   |__   .-.
+       .-'  |   |  `-:   :
+      :     `---'     :-'
+  jgs  `-._       _.-'
+           '""""""
 
 I light the match. I see a candle - I'll light it on that.
+_____________________________________________________
 """
 
-match_input = input("Should I use the match? [yes (-1 match) / no]: ")
-if match_input == "yes":
-    print(USE_MATCH_1)
-    x.field_names = ["Item", "Quantity"]
-    x.add_row(["Match", 0])
-    print(x)
-    print(USE_MATCH_2)
-elif match_input == "no":
-    print("I search the shelf for a torch. CLICK! It's bright! ")
-else:
-    print("Hmm..")
+FIND_TORCH = """
 
-print("      ------------------------------------------------ ")
-print("I could barely see past this fog, but something definitely happened here. This room is a mess. ")
-print(" ")
-print("Is this my handwriting? ")
-print(" .----------------.   .----------------.")
-print("| .--------------. | | .--------------. |")
-print("| |   RECIPE 1   | | | |   RECIPE 2   | |")
-print("| |              | | | |              | |")
-print("| |   Aconitum   | | | |  Asteraceae  | |")
-print("| |   Lucanidae  | | | |  Nightshade  | |")
-print("| | Cerambycidae | | | | Chanterelle  | |")
-print("| |              | | | |              | |")
-print("| '--------------' | | '--------------' |")
-print("  '----------------'  '----------------'")
+I search the shelf for a torch. CLICK! It's bright!
+_____________________________________________________
+"""
+
+def match_log():
+    """Match Response Log"""
+    match_input = input("Should I use the match? [yes (-1 match) / no]: ")
+    if match_input == "yes":
+        x.field_names = ["Item", "Quantity"]
+        x.add_row(["Match", 0])
+        print([x, LIGHT_MATCH])
+    elif match_input == "no":
+        print(FIND_TORCH)
+    else:
+        print("Hmm..")
+        match_log()
+match_log()
+
+LOG_2 = """
+I could barely see past this fog, but something definitely happened here. This room is a mess.
+
+Is this my handwriting?
+  .----------------.   .----------------.
+ | .--------------. | | .--------------. |
+ | |   RECIPE 1   | | | |   RECIPE 2   | |
+ | |              | | | |              | |
+ | |   Aconitum   | | | |  Asteraceae  | |
+ | |   Lucanidae  | | | |  Nightshade  | |
+ | | Cerambycidae | | | | Chanterelle  | |
+ | |              | | | |              | |
+ | '--------------' | | '--------------' |
+  '----------------'   '----------------'
+
+It seems to be two recipes of some sort.
+_____________________________________________________
+"""
+
+print(LOG_2)
+
 
 print("It seems to be two recipes of some sort. ")
 recipe_Input = input.capitalise("Which should I make? [recipe 1 / recipe 2]: ")
@@ -84,7 +150,8 @@ print("I know I have these ingredients somewhere... ")
 # print("  Inspect rack of vials. ")
 # print("  Inspect drawers. ")
 # print("  Inspect workbench jars. ")
--------------
+
+
 # variable = function
 inspect_Input = input("Where should I look first? [rack / drawers / jars]")
 

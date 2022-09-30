@@ -1,6 +1,5 @@
 """POOF! A mysterious situation?
-   A text-based mystery game.
-   Python v3.10.4"""
+   A text-based mystery game."""
 
 from simple_term_menu import TerminalMenu
 import colorama
@@ -10,14 +9,19 @@ from prettytable import DOUBLE_BORDER
 from prettytable.colortable import ColorTable, Themes
 
 colorama.init(autoreset=True)
-inventory = []
 x = PrettyTable()
 x.set_style(DOUBLE_BORDER)
 x = ColorTable(theme=Themes.OCEAN)
 x.field_names = ["Item", "Quantity", "Description"]
 
-recipe_1 = ["Recipe 1", "Aconitum", "Lucanidae", "Cerambycidae"]
+# Recipe List
+recipe_1 = ["Recipe 1", "Aconitum", "Lucanidae", "Sage"]
 recipe_2 = ["Recipe 2", "Asteraceae", "Nightshade", "Chanterelle", "Match"]
+
+# All Items in Game
+storage = ["Torch", "Recipe 1", "Recipe 2", "Aconitum", "Lucanidae", "Sage", "Asteraceae", "Nightshade", "Chanterelle"]
+inventory = ["Match"]
+# inventory.extend(storage)
 
 # FUNCTIONS ---------------------------------------------------------------------
 def title_art():
@@ -69,11 +73,11 @@ def light_match():
 
 def find_torch():
     """ Find Torch Response """
-    print(f"{Fore.YELLOW + Style.DIM}                      _.----.               .   *   ")
-    print(f"{Fore.YELLOW + Style.NORMAL}    .----------------' /  /  \\     .   '    ,   '    ")
-    print(f"{Fore.YELLOW + Style.BRIGHT}   (    [ ]         | |   |) |   '  *CLICK!*   .   *  ")
-    print(f"{Fore.YELLOW + Style.NORMAL}    `----------------._\  \  /  '    '    .   *   '  ")
-    print(f"{Fore.YELLOW + Style.DIM}                       '----'           '    .   *  ")
+    print(f"{Fore.CYAN + Style.DIM}                      _.----.               .   *   ")
+    print(f"{Fore.CYAN + Style.NORMAL}    .----------------' /  /  \\     .   '    ,   '    ")
+    print(f"{Fore.CYAN + Style.BRIGHT}   (    [ ]         | |   |) |   '  *CLICK!*   .   *  ")
+    print(f"{Fore.CYAN + Style.NORMAL}    `----------------._\  \  /  '    '    .   *   '  ")
+    print(f"{Fore.CYAN + Style.DIM}                       '----'           '    .   *  ")
     print(f"{Style.BRIGHT}\nI search the shelf for a torch. CLICK! It's bright!")
     print(f"{Fore.LIGHTBLACK_EX}____________________________________________________________________")
 
@@ -81,32 +85,32 @@ def log_2():
     """ Log 2 """
     print(f"{Style.BRIGHT}\nI could barely see past this fog, but something definitely happened here.")
     print(f"{Style.BRIGHT}This room is a mess.")
-    print(f"{Fore.CYAN + Style.NORMAL}\n__ _____ ____ _____ ______ _______ _____ ______ ______ ______ ___")
-    print(f"{Fore.CYAN + Style.BRIGHT}__]_____]____]_____]______]_______]_____]______]______]______]___]")
-    print(f"{Fore.CYAN + Style.DIM}             _                       _______  |||'||;;|.||##||=|||")
-    print(f"{Fore.CYAN + Style.DIM}  _                           _     |   *  3| |||-|| =|-||==||+|||")
-    print(f"{Fore.CYAN + Style.DIM}  ____________       _              |       | |||_||__|_||__||_|||")
-    print(f"{Fore.CYAN + Style.NORMAL}|`.   --__     `.        _______    |       | ||================||")
-    print(f"{Fore.CYAN + Style.NORMAL}|  `._____________`.  .'|.-----.|   _ ======| ||| | -|&|^^|!!|-|||")
-    print(f"{Fore.CYAN + Style.NORMAL}|   | .-----------.| |  ||     ||  (o))   _ | ||| |**|=|+-|##|=|||")
-    print(f"{Fore.CYAN + Style.NORMAL}|   | |  .-------.|| |  ||     ||  /||   / \`._|  .-.|_|__|__|_|||")
-    print(f"{Fore.CYAN + Style.NORMAL}|   | |  |       |||_`..|'_____'| //||___\_/.'\| (( ))==========||")
-    print(f"{Fore.CYAN + Style.BRIGHT}|   | |`.|  ==== ||| | `---------(o)||         \  /-'-=|+|.-|-'|||")
-    print(f"{Fore.CYAN + Style.BRIGHT}|`. | |`.|_______|||/|______________||__.--._ (o)/|=|;:|-|&&|&&|||")
-    print(f"{Fore.CYAN + Style.BRIGHT}|  `|_|===========||_|  _____      ____(____)-.'(o)_|__|_|__|__|||")
-    print(f"{Fore.CYAN + Style.BRIGHT}|   | |  .-------.||   `. ~~~ `.  `. ~~~ `.    `._\=============||")
-    print(f"{Fore.CYAN + Style.BRIGHT}|   | |  |       |||     `. ____`.  `._____`.    `.     |       ||")
-    print(f"{Fore.CYAN + Style.BRIGHT}|   | |`.|  ==== |||`._____________________________`.  o|o      ||")
-    print(f"{Fore.CYAN + Style.BRIGHT}|`. | |`.|_______||| |._.----------------.__.-------.|__|_______||")
-    print(f"{Fore.CYAN + Style.NORMAL}|  `|_|===========|| || '----------------'  | .---. ||  __")
-    print(f"{Fore.CYAN + Style.NORMAL}|   | |  .-------.|| ||               |     |_______||.'\.'.     ,   .")
-    print(f"{Fore.CYAN + Style.NORMAL}|   | |  |       ||| || ______________|     | .---. ||'.__.'    .  .")
-    print(f"{Fore.CYAN + Style.DIM}|   | |`.|  ==== ||| ||   .          . `.   |_______|||  _ |  .       /")
-    print(f"{Fore.CYAN + Style.DIM} `. | |`.|_______||| || ,     ,  .     @ `. | .---. |||_  ||     @")
-    print(f"{Fore.CYAN + Style.DIM}   `|_|===========||`||     ,   @      ,   `|_______|||____|      , .")
-    print(f"{Fore.CYAN + Style.DIM}       .         @      `.     ,        .     `.   .          ;")
-    print(f"{Fore.CYAN + Style.DIM}        @    .         ,  `.____________________`.     @.   ,    ,")
-    print(f"{Fore.CYAN + Style.NORMAL}      .     ,   `        ,    @       , '      ,        .      .      .")
+    print(f"{Fore.YELLOW + Style.NORMAL}\n__ _____ ____ _____ ______ _______ _____ ______ ______ ______ ___")
+    print(f"{Fore.YELLOW + Style.BRIGHT}__]_____]____]_____]______]_______]_____]______]______]______]___]")
+    print(f"{Fore.YELLOW + Style.DIM}             _                       _______  |||'||;;|.||##||=|||")
+    print(f"{Fore.YELLOW + Style.DIM}  _                           _     |   *  3| |||-|| =|-||==||+|||")
+    print(f"{Fore.YELLOW + Style.DIM}  ____________       _              |       | |||_||__|_||__||_|||")
+    print(f"{Fore.YELLOW + Style.NORMAL}|`.   --__     `.        _______    |       | ||================||")
+    print(f"{Fore.YELLOW + Style.NORMAL}|  `._____________`.  .'|.-----.|   _ ======| ||| | -|&|^^|!!|-|||")
+    print(f"{Fore.YELLOW + Style.NORMAL}|   | .-----------.| |  ||     ||  (o))   _ | ||| |**|=|+-|##|=|||")
+    print(f"{Fore.YELLOW + Style.NORMAL}|   | |  .-------.|| |  ||     ||  /||   / \`._|  .-.|_|__|__|_|||")
+    print(f"{Fore.YELLOW + Style.NORMAL}|   | |  |       |||_`..|'_____'| //||___\_/.'\| (( ))==========||")
+    print(f"{Fore.YELLOW + Style.BRIGHT}|   | |`.|  ==== ||| | `---------(o)||         \  /-'-=|+|.-|-'|||")
+    print(f"{Fore.YELLOW + Style.BRIGHT}|`. | |`.|_______|||/|______________||__.--._ (o)/|=|;:|-|&&|&&|||")
+    print(f"{Fore.YELLOW + Style.BRIGHT}|  `|_|===========||_|  _____      ____(____)-.'(o)_|__|_|__|__|||")
+    print(f"{Fore.YELLOW + Style.BRIGHT}|   | |  .-------.||   `. ~~~ `.  `. ~~~ `.    `._\=============||")
+    print(f"{Fore.YELLOW + Style.BRIGHT}|   | |  |       |||     `. ____`.  `._____`.    `.     |       ||")
+    print(f"{Fore.YELLOW + Style.BRIGHT}|   | |`.|  ==== |||`._____________________________`.  o|o      ||")
+    print(f"{Fore.YELLOW + Style.BRIGHT}|`. | |`.|_______||| |._.----------------.__.-------.|__|_______||")
+    print(f"{Fore.YELLOW + Style.NORMAL}|  `|_|===========|| || '----------------'  | .---. ||  __")
+    print(f"{Fore.YELLOW + Style.NORMAL}|   | |  .-------.|| ||               |     |_______||.'\.'.     ,   .")
+    print(f"{Fore.YELLOW + Style.NORMAL}|   | |  |       ||| || ______________|     | .---. ||'.__.'    .  .")
+    print(f"{Fore.YELLOW + Style.DIM}|   | |`.|  ==== ||| ||   .          . `.   |_______|||  _ |  .       /")
+    print(f"{Fore.YELLOW + Style.DIM} `. | |`.|_______||| || ,     ,  .     @ `. | .---. |||_  ||     @")
+    print(f"{Fore.YELLOW + Style.DIM}   `|_|===========||`||     ,   @      ,   `|_______|||____|      , .")
+    print(f"{Fore.YELLOW + Style.DIM}       .         @      `.     ,        .     `.   .          ;")
+    print(f"{Fore.YELLOW + Style.DIM}        @    .         ,  `.____________________`.     @.   ,    ,")
+    print(f"{Fore.YELLOW + Style.NORMAL}      .     ,   `        ,    @       , '      ,        .      .      .")
     print(f"{Style.BRIGHT}  ...")
     print(f"{Style.BRIGHT}\nWhat's this?")
 
@@ -114,20 +118,19 @@ def log_2():
 def inspect_recipes():
     """ Recipe Introduction """
     print(f"{Style.BRIGHT}Is this my handwriting?")
-    print(f"{Fore.LIGHTCYAN_EX + Style.DIM}  .----------------.   .----------------.")
-    print(f"{Fore.LIGHTCYAN_EX + Style.NORMAL} | .--------------. | | .--------------. |")
-    print(f"{Fore.LIGHTCYAN_EX + Style.BRIGHT} | |   RECIPE 1   | | | |   RECIPE 2   | |")
-    print(f"{Fore.LIGHTCYAN_EX + Style.BRIGHT} | |              | | | |              | |")
-    print(f"{Fore.LIGHTCYAN_EX + Style.BRIGHT} | |   Aconitum   | | | |  Asteraceae  | |")
-    print(f"{Fore.LIGHTCYAN_EX + Style.BRIGHT} | |   Lucanidae  | | | |  Nightshade  | |")
-    print(f"{Fore.LIGHTCYAN_EX + Style.BRIGHT} | | Cerambycidae | | | | Chanterelle  | |")
-    print(f"{Fore.LIGHTCYAN_EX + Style.BRIGHT} | |      = ?     | | | |     = ?      | |")
-    print(f"{Fore.LIGHTCYAN_EX + Style.NORMAL} | |              | | | |              | |")
-    print(f"{Fore.LIGHTCYAN_EX + Style.NORMAL} | '--------------' | | '--------------' |")
-    print(f"{Fore.LIGHTCYAN_EX + Style.DIM}  '----------------'   '----------------'")
+    print(f"{Fore.GREEN + Style.DIM}  .----------------.   .----------------.")
+    print(f"{Fore.GREEN + Style.NORMAL} | .--------------. | | .--------------. |")
+    print(f"{Fore.GREEN + Style.BRIGHT} | |   RECIPE 1   | | | |   RECIPE 2   | |")
+    print(f"{Fore.GREEN + Style.BRIGHT} | |              | | | |              | |")
+    print(f"{Fore.GREEN + Style.BRIGHT} | |   Aconitum   | | | |  Asteraceae  | |")
+    print(f"{Fore.GREEN + Style.BRIGHT} | |   Lucanidae  | | | |  Nightshade  | |")
+    print(f"{Fore.GREEN + Style.BRIGHT} | |     Sage     | | | | Chanterelle  | |")
+    print(f"{Fore.GREEN + Style.BRIGHT} | |      = ?     | | | |     = ?      | |")
+    print(f"{Fore.GREEN + Style.NORMAL} | |              | | | |              | |")
+    print(f"{Fore.GREEN + Style.NORMAL} | '--------------' | | '--------------' |")
+    print(f"{Fore.GREEN + Style.DIM}  '----------------'   '----------------'")
     print(f"{Style.BRIGHT}\nIt seems to be two recipes of some sort.")
-    print(f"{Style.BRIGHT}\n____________________________________________________________________")
-    print(f"{Style.BRIGHT}\nI'm sure they're somewhere.\n")
+    print(f"{Style.BRIGHT}\n____________________________________________________________________\n")
 
 # MAIN PROGRAM --------------------------------------------------------------------
 # Title Screen
@@ -135,19 +138,18 @@ title_art()
 
 # Start Menu
 def start_menu():
-        """ Title Screen Menu """
-        options = ["Start", "Quit"]
-        start_options = TerminalMenu(options, clear_screen = False, title = "What happened here?")
-        quit_menu = False
+    """ Title Screen Menu """
+    options = ["Start", "Quit"]
+    start_options = TerminalMenu(options, title = "What happened here?")
+    quit_menu = False
 
-        while quit_menu == 0:
-            options_choice = start_options.show()
-            if options_choice == 0:
-                inventory.append("Match")
-                quit_menu = True
+    while quit_menu == 0:
+        options_choice = start_options.show()
+        if options_choice == 0:
+            quit_menu = True
 
-            elif options_choice == 1:
-                quit()
+        elif options_choice == 1:
+            quit()
 
 if __name__ == "__main__":
     start_menu()
@@ -165,19 +167,20 @@ def match_log():
     while quit_menu == 0:
         options_choice = terminal_menu.show()
         if options_choice == 0:
+            # del inventory[0]
             inventory.remove("Match")
             x.add_row(["Match", 0, "-"])
             print(x)
             light_match()
             quit_menu = True
         elif options_choice == 1:
-            inventory.append("Match")
+            # storage.pop(0)
             inventory.append("Torch")
             x.add_row(["Match", 1, "A single match left."])
             x.add_row(["Torch", 1, "A bright torch."])
             print(x)
             find_torch()
-            quit_menu = True
+            quit_menu = True      
 
 if __name__ == "__main__":
     match_log()
@@ -223,14 +226,17 @@ def choose_recipe():
         recipe_number = terminal_menu.show()
         if recipe_number == 0:
             print(f"{Style.BRIGHT}Alright. Recipe 1 it is.\n")
+            storage.remove("Recipe 1")
             inventory.append("Recipe 1")
-            x.add_row(["Recipe 1", 1, "Aconitum, Lucanidae & Cerambycidae."])
+            x.add_row(["Recipe 1", 1, "Aconitum, Lucanidae & Sage."])
             print(x)
             print(f"{Style.DIM}                        (+1 Recipe)\n")
             quit_menu = True
 
         elif recipe_number == 1:
             print(f"{Style.BRIGHT}Alright. I'll go with Recipe 2.\n")
+            # storage.pop(3)
+            storage.remove("Recipe 1")
             inventory.append("Recipe 2")
             x.add_row(["Recipe 2", 1, "Asteraceae, Nightshade & Chanterelle"])
             print(x)
@@ -240,103 +246,217 @@ def choose_recipe():
 if __name__ == "__main__":
     choose_recipe()
 
-# TO ORGANISE --------------------------------------------------------------------
-
-recipe_1 = ["Recipe 1", "Aconitum", "Lucanidae", "Cerambycidae"]
-recipe_2 = ["Recipe 2", "Asteraceae", "Nightshade", "Chanterelle", "Match"]
-
-def inspect_vials():
-    """ User inspects vials """
-    vials_options = ["Pick Up Aconitum", "Pick Up Chanterelle", "Back"]
+# Choice Point: Inspect Storage
+def inspect_storage():
+    """ User inspects different storage locations """
+    print(f"{Style.BRIGHT}Where should I look first?\n")
+    storage_options = ["Inspect Rack of Vials", "Inspect Drawers", "Inspect Workbench Jars"]
+    print(storage_options)
+    storage_input = input("\n[ Vials / Drawers / Jars ]\n")
+    storage_choice = storage_input.capitalize()
     quit_menu = False
-    vials_menu = TerminalMenu(vials_options, title = "Which ingredient should I pick up?")
-
+    
+    # while storage_input != "Vials" or "Drawers" or "Jars":
+    #     print("I'm a bit confused. Where should I inspect?")
+    #     storage_input = input("[ Vials / Drawers / Jars ]\n")
+    #     storage_choice = storage_input.capitalize()
+    # else:
+    #     print("Gotcha.")
+    #     break
+        
     while quit_menu == 0:
-        vials_index = vials_menu.show()
-        if vials_index == 0:
-            print(f"{Style.BRIGHT}Picked up Aconitum.")
-            inventory.append("Aconitum")
-            x.add_row(["Aconitum", 1, "A flowering plant belonging to the family Ranunculaceae."])
-            print(x)
-            print(f"{Style.DIM}                      (+1 Aconitum)\n")
-            quit_menu = True
+        
+        #Inspect Rack of Vials
+        if storage_choice == "Vials":
+            vials_options = ["Pick Up Aconitum", "Pick Up Chanterelle", "Back"]
+            vials_menu = TerminalMenu(vials_options, title = "Which ingredient should I pick up?")
+            vials_index = vials_menu.show()
+            vials_menu_back = False
 
-        elif vials_index == 1:
-            print(f"{Style.BRIGHT} Picked up Chanterelle.")
-            inventory.append("Chanterelle")
-            x.add_row(["Chanterelle", 1, "Found in mossy coniferous forests."])
-            print(x)
-            print(f"{Style.DIM}                     (+1 Chanterelle)\n")
-            quit_menu = True
-
-def inspect_storage():
-    """ User inspects different storage locations """
-    storage_options = ["Inspect Rack of Vials", "Inspect Drawers", "Inspect Workbench Jars"]
-    quit_menu = False
-    storage_menu = TerminalMenu(storage_options, title = "Where should I look first?")
-    
-    while not quit_menu:
-        options_index = storage_menu.show()
-        options_choice = storage_options[options_index]
-
-        if options_choice == 0:
-            print(f"{Style.BRIGHT} Picked up Chanterelle.")
-            inventory.append("Chanterelle")
-            x.add_row(["Chanterelle", 1, "Found in mossy coniferous forests."])
-            print(x)
-            print(f"{Style.DIM}                     (+1 Chanterelle)\n")
-
-        elif options_choice == 1:
-            pass
-
-        elif options_choice == 2:
-            quit_menu = True
-
-if __name__ == "__main__":
-    inspect_storage()
-
-def inspect_storage():
-    """ User inspects different storage locations """
-    storage_options = ["Inspect Rack of Vials", "Inspect Drawers", "Inspect Workbench Jars"]
-    quit_menu = False
-    storage_menu = TerminalMenu(storage_options, title = "Where should I look first?")
-
-    vials_items = ["Pick Up Aconitum", "Pick Up Chanterelle", "Back"]
-    vials_menu_back = False
-    vials_menu = TerminalMenu(vials_items, title = "Which ingredient should I pick up?")
-    
-    while not quit_menu:
-        options_index = storage_menu.show()
-        options_choice = storage_options[options_index]
-
-        if options_choice == 0 and vials_menu_back is False:
-                vials_index = vials_menu.show()
-                vials_choice = vials_items[vials_index]
-                if vials_choice == "Inspect Rack of Vials":
-                    print(f"{Style.BRIGHT} Picked up Aconitum.")
+            while vials_menu_back is False:
+                if vials_index == 0:
+                    print("Picked up Aconitum.")
+                    # storage.pop(3)
+                    storage.remove("Aconitum")
                     inventory.append("Aconitum")
                     x.add_row(["Aconitum", 1, "A flowering plant belonging to the family Ranunculaceae."])
                     print(x)
-                    print(f"{Style.DIM}                      (+1 Aconitum)\n")
-                    quit_menu = True
-                elif vials_choice == 1:
-                    print(f"{Style.BRIGHT} Picked up Chanterelle.")
+                    print(f"{Style.DIM}                                  (+1 Aconitum)\n")
+                    vials_menu_back = True
+                    # del vials_options[0]
+
+                elif vials_index == 1:
+                    print("Picked up Chanterelle.")
+                    # storage.pop(8)
+                    storage.remove("Chanterelle")
                     inventory.append("Chanterelle")
                     x.add_row(["Chanterelle", 1, "Found in mossy coniferous forests."])
                     print(x)
-                    print(f"{Style.DIM}                     (+1 Chanterelle)\n")
-                    quit_menu = True
-                elif vials_choice == 2:
+                    print(f"{Style.DIM}                       (+1 Chanterelle)\n")
                     vials_menu_back = True
+                    # del vials_options[1]
 
-        elif options_choice == 1:
-            pass
+                elif vials_index == 2:
+                    return inspect_storage()
 
-        elif options_choice == 2:
-            quit_menu = True
+                # print("Already got it! Please select another one.")
+
+
+        # Inspect Drawers
+        elif storage_choice == "Drawers":
+            drawers_options = ["Pick Up Asteraceae", "Pick Up Nightshade", "Back"]
+            drawers_menu = TerminalMenu(drawers_options, title = "Which ingredient should I pick up?")
+            drawers_index = drawers_menu.show()
+            drawers_menu_back = False
+
+            while drawers_menu_back is False:
+                if drawers_index == 0:
+                    print("Picked up Asteraceae.")
+                    # storage.pop(6)
+                    storage.remove("Asteraceae")
+                    inventory.append("Asteraceae")
+                    x.add_row(["Asteraceae", 1, "The fair-maid-of-France."])
+                    print(x)
+                    print(f"{Style.DIM}                            (+1 Asteraceae)\n")
+                    drawers_menu_back = True
+
+                elif drawers_index == 1:
+                    print("Picked up Nightshade.")
+                    # storage.pop(7)
+                    storage.remove("Nightshade")
+                    inventory.append("Nightshade")
+                    x.add_row(["Nightshade", 1, "The Solanaceae."])
+                    print(x)
+                    print(f"{Style.DIM}                       (+1 Nightshade)\n")
+                    drawers_menu_back = True
+
+        # Inspect Workbench Jars
+        elif storage_choice == "Jars":
+            jars_options = ["Pick Up Lucanidae", "Pick Up Cerambycidae", "Back"]
+            jars_menu = TerminalMenu(jars_options, title = "Which ingredient should I pick up?")
+            jars_index = jars_menu.show()
+
+            if jars_index == 0:
+                print("Picked up Lucanidae.")
+                # storage.pop(4)
+                storage.remove("Lucanidae")
+                inventory.append("Lucanidae")
+                x.add_row(["Lucanidae", 1, "Also known as Phylum Arthropoda."])
+                print(x)
+                print(f"{Style.DIM}                            (+1 Lucanidae)\n")
+                quit_menu = True
+
+            elif jars_index == 1:
+                print("Picked up Sage.")
+                # storage.pop(5)
+                storage.remove("Sage")
+                inventory.append("Sage")
+                x.add_row(["Sage", 1, "An evergreen subshrub."])
+                print(x)
+                print(f"{Style.DIM}                             (+1 Sage)\n")
+                quit_menu = True
 
 if __name__ == "__main__":
     inspect_storage()
+
+# MAIN PROGRAM: Unfinished -----------------------------------------------------------------
+
+# def main_program():
+#     """ Program that executes the game """
+#     # Title Screen
+#     title_art()
+
+#     # Start Menu
+#     start_menu()
+
+#     # DIALOGUE: Part 1
+#     log_1()
+
+#     # USER INPUT: Use Match?
+#     match_log()
+
+#     # DIALOGUE: Part 2 + Inspect Room
+#     inspect_room()
+
+#     # Continue Story: Inspect Desk
+#     inspect_desk()
+
+#     # USER INPUT: Choose recipe
+#     choose_recipe()
+
+#     # USER INPUT: Choose recipe
+#     inspect_storage()
+
+# main_program()
+
+# UNUSED CODE -----------------------------------------------------------------
+
+# def inspect_storage():
+#     """ User inspects different storage locations """
+#     storage_options = ["Inspect Rack of Vials", "Inspect Drawers", "Inspect Workbench Jars"]
+#     storage_menu = TerminalMenu(storage_options, title = "Where should I look?")
+#     quit_menu = False
+    
+#     while not quit_menu:
+#         options_index = storage_menu.show()
+#         options_choice = storage_options[options_index]
+#         quit_menu = True
+
+#         if options_choice == 0:
+#             storage_options.remove("Inspect Rack of Vials")
+#             v
+
+#         elif options_choice == 1:
+#             pass
+
+#         elif options_choice == 2:
+#             quit_menu = True
+
+# if __name__ == "__main__":
+#     inspect_storage()
+
+# def inspect_storage():
+#     """ User inspects different storage locations """
+#     storage_options = ["Inspect Rack of Vials", "Inspect Drawers", "Inspect Workbench Jars"]
+#     quit_menu = False
+#     storage_menu = TerminalMenu(storage_options, title = "Where should I look first?")
+
+#     vials_items = ["Pick Up Aconitum", "Pick Up Chanterelle", "Back"]
+#     vials_menu_back = False
+#     vials_menu = TerminalMenu(vials_items, title = "Which ingredient should I pick up?")
+    
+#     while not quit_menu:
+#         options_index = storage_menu.show()
+#         options_choice = storage_options[options_index]
+
+#         if options_choice == 0 and vials_menu_back is False:
+#                 vials_index = vials_menu.show()
+#                 vials_choice = vials_items[vials_index]
+#                 if vials_choice == "Inspect Rack of Vials":
+#                     print(f"{Style.BRIGHT} Picked up Aconitum.")
+#                     inventory.append("Aconitum")
+#                     x.add_row(["Aconitum", 1, "A flowering plant belonging to the family Ranunculaceae."])
+#                     print(x)
+#                     print(f"{Style.DIM}                      (+1 Aconitum)\n")
+#                     quit_menu = True
+#                 elif vials_choice == 1:
+#                     print(f"{Style.BRIGHT} Picked up Chanterelle.")
+#                     inventory.append("Chanterelle")
+#                     x.add_row(["Chanterelle", 1, "Found in mossy coniferous forests."])
+#                     print(x)
+#                     print(f"{Style.DIM}                     (+1 Chanterelle)\n")
+#                     quit_menu = True
+#                 elif vials_choice == 2:
+#                     vials_menu_back = True
+
+#         elif options_choice == 1:
+#             pass
+
+#         elif options_choice == 2:
+#             quit_menu = True
+
+# if __name__ == "__main__":
+#     inspect_storage()
 
 #     x.field_names = ["Item", "Quantity", "Description"]
 # x.add_row(["Match", 1, "It has one match left."])
@@ -345,32 +465,6 @@ if __name__ == "__main__":
 # x.add_row(["Asteraceae", 1, "The fair-maid-of-France."])
 # x.add_row(["Nightshade", 1, "The Solanaceae."])
 # x.add_row(["Chanterelle", 1, "Found in mossy coniferous forests."])
-
-# MAIN PROGRAM -----------------------------------------------------------------
-def main_program():
-    """ Program that executes the game """
-    # Title Screen
-    title_art()
-
-    # Start Menu
-    start_menu()
-
-    # DIALOGUE: Part 1
-    log_1()
-
-    # USER INPUT: Use Match?
-    match_log()
-
-    # DIALOGUE: Part 2 + Inspect Room
-    inspect_room()
-
-    # Continue Story: Inspect Desk
-    inspect_desk()
-
-    # USER INPUT: Choose recipe
-    choose_recipe()
-
-    inspect_storage()
 
 # USER INPUT: Inspect storage
 # def inspect_storage():
@@ -406,8 +500,6 @@ def main_program():
 # if __name__ == "__main__":
 #     inspect_storage()
 
-main_program()
-
         #     x.field_names = ["Item", "Quantity"]
         #     x.add_row(["Match", 0])
         #     print(x)
@@ -419,7 +511,6 @@ main_program()
         #     quit_menu = True
 
 # variable = function
-inspect_Input = input("Where should I look first? [rack / drawers / jars]")
 
 
 # if inspect_Input == "rack":
@@ -442,4 +533,3 @@ inspect_Input = input("Where should I look first? [rack / drawers / jars]")
 
 
 # feature 3
-

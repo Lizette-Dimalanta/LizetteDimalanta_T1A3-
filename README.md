@@ -91,4 +91,4 @@ This Terminal Application was created accordingly to [PEP 8](https://pep8.org/) 
 
 ## Author Notes:
 
-This project is unfinished due to the severity of personal hardship and major technical issues. Please contact me for more information.
+This project is unfinished due major technical issues. Please contact me for more information.

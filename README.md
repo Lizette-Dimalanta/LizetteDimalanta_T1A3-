@@ -9,6 +9,9 @@
 ## Purpose
 
 *"Poof!"* is an interactive text-based mystery game, in which the user plays in the first-person perspective of a clueless scientist.
+## Purpose
+
+"Poof!" is an interactive text-based mystery game, in which the user plays in the first-person perspective of a clueless scientist.
 
 Suddenly waking up during in the aftermath of an experiment-gone-wrong, the scientist (user) is presented with two recipes:
 One will create the antidote and one will fail, generating a smokey chemical reaction that will make the scientist forget (restart).
@@ -69,6 +72,7 @@ This Terminal Application was created accordingly to [PEP 8](https://pep8.org/) 
 
     ```python3
     git clone git@github.com:Lizette-Dimalanta/LizetteDimalanta_T1A3-.git
+    git@github.com:Lizette-Dimalanta/LizetteDimalanta_T1A3-.git
     ```
 
 3. Change into the `src` directory within the cloned repository.
@@ -124,3 +128,6 @@ This Terminal Application was created accordingly to [PEP 8](https://pep8.org/) 
 ## Author Notes:
 
 This project is unfinished due to the severity of personal hardship and major technical issues. Please contact me for more information.
+## Author Notes:
+
+This project is unfinished due major technical issues. Please contact me for more information.
